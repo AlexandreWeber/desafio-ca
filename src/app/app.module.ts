@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
-import { WeatherBoxComponent } from './shared/components/box/box.component';
+import { BoxComponent } from './shared/components/box/box.component';
 import { WeatherService } from './shared/services/weather.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptorService } from './shared/services/request-interceptor.service';
@@ -16,7 +16,7 @@ import { LogoComponent } from './shared/components/logo/logo.component';
   declarations: [
     AppComponent,
     WeatherComponent,
-    WeatherBoxComponent,
+    BoxComponent,
     LoadingComponent,
     LogoComponent
   ],

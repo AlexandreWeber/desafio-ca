@@ -13,7 +13,7 @@ export class WeatherComponent implements OnInit {
 
   weatherList = [];
 
-  showLoading: boolean = false;
+  showLoading: boolean = true;
 
   lastSync: string;
 
@@ -22,25 +22,21 @@ export class WeatherComponent implements OnInit {
               private cacheService: CacheService) { }
 
   ngOnInit() {
-    this.cacheService.clearCache();
     this.getWeathers();
 
     setInterval(() => {
-      this.cacheService.clearCache();
-
       this.getWeathers();
     }, 600000);
   }
 
   getWeathers() {
-
+    this.cacheService.clearCache();
     forkJoin(
       this.weatherService.get('Nuuk', 'GL'),
       this.weatherService.get('Urubici', 'BR'),
       this.weatherService.get('Nairobi', 'KE'),
     ).subscribe((response) => {
       this.weatherList = [...response];
-      this.weatherList[1].isActive = true;
 
       this.handleCache();
     });

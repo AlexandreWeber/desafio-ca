@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './box.component.html',
   styleUrls: ['./box.component.scss']
 })
-export class WeatherBoxComponent implements OnInit {
+export class BoxComponent implements OnInit {
 
   @Input() data: any;
   @Input() lastSync: string;

@@ -9,7 +9,6 @@ export class CacheService {
   private readonly cacheKey = 'weatherList';
   private readonly lastSync = 'lastSync';
 
-
   constructor() { }
 
   setCache(weatherList) {
@@ -21,12 +20,12 @@ export class CacheService {
     window.localStorage.setItem(this.cacheKey, '');
   }
 
-  getCache(city, country) {
+  getCache(city: string, country: string) {
     const weatherLocal = window.localStorage.getItem(this.cacheKey);
     const weatherJson = weatherLocal ? JSON.parse(weatherLocal) : [];
 
     return weatherJson.find((weather) => weather.name === city &&
-                                         weather.sys.country === country)
+                                         weather.sys.country === country);
   }
 
   getLastSync() {

@@ -17,8 +17,8 @@ export class WeatherService {
 
     if (weather) {
       return of(weather);
-    } else {
-      return this.http.get(`${this.url}?q=${city},${country}&units=metric`);
     }
+
+    return this.http.get(`${this.url}?q=${city},${country}&units=metric`);
   }
 }

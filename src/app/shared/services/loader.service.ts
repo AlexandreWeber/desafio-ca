@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 export class LoaderService {
 
-  showLoading:EventEmitter<boolean> = new EventEmitter();
+  showLoading: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }
 
