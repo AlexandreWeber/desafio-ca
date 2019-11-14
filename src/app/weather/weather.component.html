@@ -1,0 +1,14 @@
+<loading *ngIf="showLoading"></loading>
+
+<logo></logo>
+
+<div class="main-container center">
+  <div class="boxes">
+    <div *ngFor="let weather of weatherList">
+      <box [data]="weather"
+           [lastSync]="lastSync"
+           (mouseover)="changeActive(weather.id)">
+      </box>
+    </div>
+  </div>
+</div>

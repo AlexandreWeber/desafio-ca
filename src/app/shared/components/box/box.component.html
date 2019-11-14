@@ -1,0 +1,32 @@
+<div class="box">
+  <div class="header center">
+    {{data?.name}}, {{ data?.sys.country}}
+  </div>
+
+  <hr>
+
+  <div class="body center"
+      [ngClass]="{'blue' : data.main.temp <= 5,
+                  'orange': data.main.temp > 5 && data.main.temp <= 25,
+                  'red'  :  data.main.temp > 25}">
+    {{ data?.main.temp }}º
+  </div>
+
+  <div class="footer">
+    <div *ngIf="data.isActive">
+      <div class="data">
+        <p>Humidity</p>
+        <p>Pressure</p>
+      </div>
+
+      <div class="data bold">
+        <p>{{ data?.main.humidity }}%</p>
+        <p>{{ data?.main.pressure}}hPa</p>
+      </div>
+    </div>
+
+    <div class="center footer-padding">
+      Updated at {{ lastSync | date : 'H:mm:ss' }}
+    </div>
+  </div>
+</div>
