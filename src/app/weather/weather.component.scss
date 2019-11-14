@@ -10,3 +10,19 @@
   width: 80%;
   height: 100%;
 }
+
+@media (max-width: 600px) {
+  .boxes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .box {
+    padding-top: 10px;
+    width: 90%;
+  }
+
+  .logo1 {
+    padding-bottom: 30px;
+  }
+}
