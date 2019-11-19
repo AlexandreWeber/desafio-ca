@@ -53,7 +53,7 @@ export class BoxComponent implements OnInit {
   }
 
   showDetails(show: boolean) {
-    if(this.cityData) {
+    if (this.cityData) {
       this.cityData.isActive = show;
     }
   }
