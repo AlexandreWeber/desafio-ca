@@ -9,11 +9,10 @@
 
   <hr>
 
-
-  <div class="body center" *ngIf="cityData"
-      [ngClass]="{'blue' : cityData?.main?.temp <= 5,
+  <div class="body center"
+      [ngClass]="{'blue'  : cityData?.main?.temp <= 5,
                   'orange': cityData?.main?.temp > 5 && cityData?.main?.temp <= 25,
-                  'red'  :  cityData?.main?.temp > 25}">
+                  'red'   : cityData?.main?.temp > 25}">
     {{ cityData?.main?.temp }}º
 
     <app-loading class="body center" *ngIf="showLoading"></app-loading>
@@ -21,7 +20,7 @@
 
   <div class="body center error" *ngIf="!cityData">
     <p class="error-message">Something went wrong</p>
-    <button class="button-try">Try Again</button>
+    <button (click)="getCityData()" class="button-try">Try Again</button>
   </div>
 
   <div class="footer" *ngIf="cityData">

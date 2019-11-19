@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { CacheService } from './cache.service';
-import { LoaderService } from './loader.service';
 
 @Injectable()
 export class WeatherService {
@@ -23,5 +22,6 @@ export class WeatherService {
     this.cache.setLastSync();
 
     return this.http.get(`${this.url}?q=${city},${country}&units=metric`);
+
   }
 }

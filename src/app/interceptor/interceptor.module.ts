@@ -30,7 +30,6 @@ export class InterceptorService implements HttpInterceptor {
   }
 }
 
-
 @NgModule({
   providers: [
     {

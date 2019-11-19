@@ -20,24 +20,30 @@ export class BoxComponent implements OnInit {
   @Input() city: any;
 
   constructor(private weatherService: WeatherService,
-              private loaderService: LoaderService,
-              private cacheService: CacheService) { }
+              private cacheService: CacheService,
+              private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.getLastSync();
     this.getCityData();
 
-    setInterval(() => {
-      const today = new Date();
-      const lastSync = new Date(this.lastSync);
+    this.loaderService.isShow().subscribe((show: boolean) => {
+      this.showLoading = show;
+    });
 
-      if (differenceInMinutes(today, lastSync) >= 10) {
-        this.cacheService.clearCache(`${this.city.name}|${this.city.country}`);
+    setInterval(this.handleLastSync, 60000);
+  }
 
-        this.getCityData();
-        this.getLastSync();
-      }
-    }, 60000);
+  handleLastSync() {
+    const today = new Date();
+    const lastSync = new Date(this.lastSync);
+
+    if (differenceInMinutes(today, lastSync) >= 10) {
+      this.cacheService.clearCache(`${this.city.name}|${this.city.country}`);
+
+      this.getCityData();
+      this.getLastSync();
+    }
   }
 
   getCityData() {
@@ -45,6 +51,7 @@ export class BoxComponent implements OnInit {
                        .subscribe((cityData) => {
         this.cityData = cityData;
         this.showLoading = false;
+
         this.handleCache(cityData);
     }, (err) => {
         this.cityData = undefined;
