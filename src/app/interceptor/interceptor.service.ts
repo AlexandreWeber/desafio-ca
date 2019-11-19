@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { LoaderService } from '../shared/services/loader.service';
-import { CacheService } from '../shared/services/cache.service';
 
 @Injectable()
 
