@@ -54,3 +54,34 @@ hr {
 .red {
   color: var(--tertiary-color);
 }
+
+loading {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  color: var(--tertiary-color);
+  font-size: 16px;
+  padding-bottom: 10%;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button-try {
+  border: 2px solid var(--primary-grey);
+  background-color: white;
+  color: var(--primary-grey);
+  font-size: 16px;
+  width: 120px;
+  height: 40px;
+  border-radius: 20px 20px;
+  cursor: pointer;
+}

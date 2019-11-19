@@ -11,6 +11,16 @@
   height: 100%;
 }
 
+.logo {
+  padding-bottom: 10%;;
+}
+
+@media (max-width: 1200px) {
+  .boxes {
+
+    width: 100%;
+  }
+}
 @media (max-width: 600px) {
   .boxes {
     flex-direction: column;

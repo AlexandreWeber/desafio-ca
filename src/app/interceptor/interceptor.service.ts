@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
-import { LoaderService } from './loader.service';
+import { environment } from '../../environments/environment';
+import { LoaderService } from '../shared/services/loader.service';
+import { CacheService } from '../shared/services/cache.service';
 
 @Injectable()
 
-export class RequestInterceptorService implements HttpInterceptor {
+export class InterceptorService implements HttpInterceptor {
 
   constructor(private loaderService: LoaderService) { }
 

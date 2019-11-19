@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather/weather.component';
 import { BoxComponent } from './shared/components/box/box.component';
 import { WeatherService } from './shared/services/weather.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RequestInterceptorService } from './shared/services/request-interceptor.service';
+import { HttpClientModule } from '@angular/common/http';
 import { LoaderService } from './shared/services/loader.service';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { LogoComponent } from './shared/components/logo/logo.component';
+import { Interceptor } from './interceptor/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -22,17 +22,13 @@ import { LogoComponent } from './shared/components/logo/logo.component';
   ],
   imports: [
     BrowserModule,
+    Interceptor,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
   ],
   providers: [
     WeatherService,
     LoaderService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RequestInterceptorService,
-      multi: true,
-    }
   ],
   bootstrap: [AppComponent]
 })

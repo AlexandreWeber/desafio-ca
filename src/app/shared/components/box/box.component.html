@@ -1,27 +1,39 @@
-<div class="box">
+
+<div class="box"
+    (mouseover)="showDetails(true)"
+    (mouseleave)="showDetails(false)">
+
   <div class="header center">
-    {{data?.name}}, {{ data?.sys.country}}
+    {{city.name}}, {{ city.country}}
   </div>
 
   <hr>
 
-  <div class="body center"
-      [ngClass]="{'blue' : data.main.temp <= 5,
-                  'orange': data.main.temp > 5 && data.main.temp <= 25,
-                  'red'  :  data.main.temp > 25}">
-    {{ data?.main.temp }}º
+
+  <div class="body center" *ngIf="cityData"
+      [ngClass]="{'blue' : cityData?.main?.temp <= 5,
+                  'orange': cityData?.main?.temp > 5 && cityData?.main?.temp <= 25,
+                  'red'  :  cityData?.main?.temp > 25}">
+    {{ cityData?.main?.temp }}º
+
+    <app-loading class="body center" *ngIf="showLoading"></app-loading>
+  </div>
+
+  <div class="body center error" *ngIf="!cityData">
+    <p class="error-message">Something went wrong</p>
+    <button class="button-try">Try Again</button>
   </div>
 
   <div class="footer">
-    <div *ngIf="data.isActive">
+    <div *ngIf="cityData?.isActive">
       <div class="data">
         <p>Humidity</p>
         <p>Pressure</p>
       </div>
 
       <div class="data bold">
-        <p>{{ data?.main.humidity }}%</p>
-        <p>{{ data?.main.pressure}}hPa</p>
+        <p>{{ cityData?.main?.humidity }}%</p>
+        <p>{{ cityData?.main?.pressure}}hPa</p>
       </div>
     </div>
 

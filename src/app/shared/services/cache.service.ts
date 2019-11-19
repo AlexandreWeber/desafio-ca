@@ -6,26 +6,29 @@ import { Injectable } from '@angular/core';
 
 export class CacheService {
 
-  private readonly cacheKey = 'weatherList';
   private readonly lastSync = 'lastSync';
 
   constructor() { }
 
-  setCache(weatherList) {
-    window.localStorage.setItem(this.cacheKey, JSON.stringify(weatherList));
+  setCache(key: string, weather: any) {
+    window.localStorage.setItem(key, JSON.stringify(weather));
+  }
+
+  setLastSync() {
     window.localStorage.setItem(this.lastSync, new Date().toString());
   }
 
-  clearCache() {
-    window.localStorage.setItem(this.cacheKey, '');
+  clearCache(key: string) {
+    window.localStorage.setItem(key, undefined);
   }
 
-  getCache(city: string, country: string) {
-    const weatherLocal = window.localStorage.getItem(this.cacheKey);
-    const weatherJson = weatherLocal ? JSON.parse(weatherLocal) : [];
+  getCache(key: string) {
+    const weatherLocal = window.localStorage.getItem(key);
+    const weatherJson = weatherLocal && weatherLocal !== 'undefined'
+                        ? JSON.parse(weatherLocal)
+                        : undefined;
 
-    return weatherJson.find((weather) => weather.name === city &&
-                                         weather.sys.country === country);
+    return weatherJson;
   }
 
   getLastSync() {

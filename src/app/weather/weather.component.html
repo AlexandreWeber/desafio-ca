@@ -1,16 +1,12 @@
-<loading *ngIf="showLoading"></loading>
-
-<div class="logo1">
-  <logo></logo>
-</div>
-
-<div class="main-container center">
-  <div class="boxes">
-    <div class="box" *ngFor="let weather of weatherList">
-      <box [data]="weather"
-           [lastSync]="lastSync"
-           (mouseover)="changeActive(weather.id)">
-      </box>
+<div>
+  <div class="logo">
+    <app-logo></app-logo>
+  </div>
+  <div class="main-boxes center">
+    <div class="boxes">
+      <div class="box" *ngFor="let city of cities">
+        <app-box [city]="city"></app-box>
+      </div>
     </div>
   </div>
 </div>
