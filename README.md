@@ -1,27 +1,27 @@
-# Weather
+## Pré-requisitos
+Node e npm instalados
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.5.
+Para conferir:
+node -v
+npm -v
 
-## Development server
+## Rodando o projeto
+Na primeira execução será necessário instalar as dependências do projeto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para isso abrir no CMD a pasta que contém o arquivo package.json
 
-## Code scaffolding
+Após isso rodar no CMD o comando abaixo:
+npm i ou npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Executando os testes integrados
 
-## Build
+Executar no CMD o comando abaixo:
+ng test
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Uso da API
+Para utilizar a API é necessário criar uma conta e obter um app_id, para faciliar
+deixei o meu app_id no arquivo enviroment.ts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Em caso de problemas na autenticação, será necessário gerar um novo app_id:
+https://home.openweathermap.org/users/sign_in
