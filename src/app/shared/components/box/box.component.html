@@ -24,7 +24,7 @@
     <button class="button-try">Try Again</button>
   </div>
 
-  <div class="footer">
+  <div class="footer" *ngIf="cityData">
     <div *ngIf="cityData?.isActive">
       <div class="data">
         <p>Humidity</p>
